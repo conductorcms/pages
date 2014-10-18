@@ -1,5 +1,5 @@
 {
-    "name": "mattnmoore/pages",
+    "name": "conductor/pages",
     "description": "",
     "authors": [
         {
@@ -16,7 +16,7 @@
             "src/migrations"
         ],
         "psr-0": {
-            "Mattnmoore\\Pages\\": "src/"
+            "Conductor\\Pages\\": "src/"
         }
     },
     "minimum-stability": "stable"

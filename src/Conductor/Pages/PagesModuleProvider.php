@@ -1,6 +1,6 @@
-<?php namespace Mattnmoore\Pages;
+<?php namespace Conductor\Pages;
 
-use Mattnmoore\Conductor\Module\ModuleProvider;
+use Conductor\Core\Module\ModuleProvider;
 
 class PagesModuleProvider extends ModuleProvider {
 
@@ -18,7 +18,7 @@ class PagesModuleProvider extends ModuleProvider {
 	 */
 	public function boot()
 	{
-		$this->package('mattnmoore/pages');
+		$this->package('conductor/pages');
 	}
 
 	/**

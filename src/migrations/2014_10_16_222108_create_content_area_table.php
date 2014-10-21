@@ -12,10 +12,10 @@ class CreateContentAreaTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('pages_content_areas', function($table)
+		Schema::create('content_areas', function($table)
         {
             $table->increments('id');
-            $table->integer('template_id');
+            $table->integer('type_id');
             $table->string('name');
             $table->string('type');
         });

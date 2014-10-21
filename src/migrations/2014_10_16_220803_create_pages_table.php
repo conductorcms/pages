@@ -15,7 +15,7 @@ class CreatePagesTable extends Migration {
 		Schema::create('pages', function($table)
         {
             $table->increments('id');
-            $table->integer('template_id');
+            $table->integer('type_id');
             $table->string('title');
         });
 	}

@@ -3,9 +3,18 @@ angular.module('admin.pages').config(function(NavigationProvider) {
         title: 'Pages',
         items: [
             {
-                title: 'Overview',
+                title: 'Pages',
                 uri: '/admin/pages'
+            },
+            {
+                title: 'Page types',
+                uri: '/admin/pages/types'
+            },
+            {
+                title: 'Add a page',
+                uri: '/admin/pages/create'
             }
+
         ]
     });
 });

@@ -15,7 +15,12 @@
 						<button style="margin-bottom: 20px" class="btn btn-primary">Set Page Type</button>
 						<div class="form-group">
 							<label for="page-name">Page Name</label>
-							<input type="text" class="form-control" id="page-name" placeholder="Page Name">
+							<input ng-model="page.name" type="text" class="form-control" id="page-name" placeholder="Page Name">
+						</div>
+						<div class="form-group">
+							<label for="page-uri">Page URI</label>
+							<slug from="page.name" to="page.slug"></slug>
+							<input ng-model="page.slug" type="text" class="form-control" id="page-uri" placeholder="page-uri" disabled>
 						</div>
 						<div class="form-group">
 							<label for="page-content">Page Content</label>

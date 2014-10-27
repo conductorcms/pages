@@ -1,4 +1,4 @@
-angular.module('admin').controller('CreateTypeCtrl', function($scope, Pages)
+angular.module('admin').controller('CreateTypeCtrl', function($scope, Pages, Slug)
 {
 	$scope.contentAreas = [];
 
@@ -15,4 +15,5 @@ angular.module('admin').controller('CreateTypeCtrl', function($scope, Pages)
 	{
 		$scope.contentAreas.splice($scope.contentAreas.indexOf(area), 1);
 	}
+
 });

@@ -15,8 +15,12 @@ class CreatePagesTable extends Migration {
 		Schema::create('pages', function($table)
         {
             $table->increments('id');
-            $table->integer('type_id');
+            $table->integer('type_id')->unsigned();
             $table->string('title');
+
+            $table->foreign('type_id')
+                  ->references('id')->on('page_types')
+                  ->onDelete('cascade');
         });
 	}
 

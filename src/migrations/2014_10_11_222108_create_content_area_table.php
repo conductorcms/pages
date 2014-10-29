@@ -15,9 +15,13 @@ class CreateContentAreaTable extends Migration {
 		Schema::create('content_areas', function($table)
         {
             $table->increments('id');
-            $table->integer('type_id');
+            $table->integer('type_id')->unsigned();
             $table->string('name');
             $table->string('type');
+
+            $table->foreign('type_id')
+                  ->references('id')->on('page_types')
+                  ->onDelete('cascade');
         });
 	}
 

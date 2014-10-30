@@ -18,6 +18,7 @@ class CreateContentTable extends Migration {
             $table->integer('page_id')->unsigned();
             $table->integer('content_area_id')->unsigned();
             $table->string('body');
+            $table->timestamps();
 
             $table->foreign('page_id')
                   ->references('id')->on('pages')

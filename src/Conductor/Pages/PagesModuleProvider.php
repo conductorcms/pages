@@ -28,14 +28,19 @@ class PagesModuleProvider extends ModuleProvider {
 	 */
 	public function register()
 	{
+        $this->app->bind('Conductor\Pages\Repositories\PageRepository', 'Conductor\Pages\Repositories\EloquentPageRepository');
 
+        //register blade extension
+        $handler = $this->app->make('Conductor\Pages\CustomBladeTags');
+        $handler->registerAll();
 	}
 
 	public function registerModule()
 	{
 		include __DIR__.'/../../routes.php';
+        include __DIR__.'/../../helpers.php';
 
-		parent::registerModule();
+        parent::registerModule();
 	}
 
 

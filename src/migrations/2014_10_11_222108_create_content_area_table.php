@@ -17,6 +17,7 @@ class CreateContentAreaTable extends Migration {
             $table->increments('id');
             $table->integer('type_id')->unsigned();
             $table->string('name');
+            $table->string('slug');
             $table->string('type');
 
             $table->foreign('type_id')

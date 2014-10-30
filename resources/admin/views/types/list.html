@@ -9,9 +9,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr >
-        <td>Pricing</td>
-        <td>3</td>
+    <tr ng-repeat="type in types">
+        <td><% type.name %></td>
+        <td></td>
         <td>
             <button class="btn btn-warning">Edit</button>
             <button class="btn btn-danger">Delete</button>

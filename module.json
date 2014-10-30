@@ -16,7 +16,7 @@
             "resources\/admin\/views\/**\/*.html"
         ]
     },
-    "authors": {
+    "author": {
         "name": "Matt Moore",
         "email": "me@mattdoescode.com"
     }

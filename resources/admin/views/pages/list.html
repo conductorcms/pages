@@ -12,10 +12,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr >
-        <td>Pricing</td>
-        <td>Pricing</td>
-        <td>Published</td>
+    <tr ng-repeat="page in pages">
+        <td><% page.name %></td>
+        <td><% page.type.name %></td>
+        <td><% page.status %></td>
         <td>
             <button class="btn btn-warning">Edit</button>
             <button class="btn btn-danger">Delete</button>

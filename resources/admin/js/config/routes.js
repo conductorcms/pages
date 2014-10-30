@@ -8,7 +8,7 @@ angular.module('admin.pages').config(function($routeProvider) {
 
     $routeProvider.when('/admin/pages/types', {
         templateUrl: 'pages/types/list.html',
-        controller: 'PagesCtrl',
+        controller: 'TypesCtrl',
         permissions: ['admin']
     });
 
@@ -20,7 +20,7 @@ angular.module('admin.pages').config(function($routeProvider) {
 
     $routeProvider.when('/admin/pages/create', {
         templateUrl: 'pages/pages/create.html',
-        controller: 'PagesCtrl',
+        controller: 'CreatePageCtrl',
         permissions: ['admin']
     });
 

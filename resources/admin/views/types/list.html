@@ -1,21 +1,39 @@
-<a href="/admin/pages/types/create" class="btn btn-primary pull-right">Add a type</a><br /><br />
+<style>
 
-<table class="table table-hover">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Content Areas</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="type in types">
-        <td><% type.name %></td>
-        <td></td>
-        <td>
-            <button class="btn btn-warning">Edit</button>
-            <button class="btn btn-danger">Delete</button>
-        </td>
-    </tr>
-    </tbody>
-</table>
+    .page-type-actions {
+        display: none;
+    }
+
+    .page-type-list-item:hover .page-type-actions {
+        display: block;
+    }
+
+    .page-type-list-item td {
+        padding-top: 12px;
+    }
+</style>
+
+<a href="/admin/pages/types/create" class="btn btn-primary pull-right">Add a type</a><br /><br />
+<div class="row">
+    <div class="col-md-8">
+        <table class="page-type table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="type in types" class="page-type-list-item">
+                <td><% type.name %></td>
+                <td>
+                    <span class="page-type-actions pull-right">
+                        <button ng-click="edit(type)" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></button>
+                        <button ng-click="destroy(type)" class="btn btn-danger btn-sm">X</button>
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

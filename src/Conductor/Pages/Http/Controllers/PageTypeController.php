@@ -20,6 +20,11 @@ class PageTypeController extends Controller {
         return Response::json(['pages' => $this->page->getTypes()], 200);
     }
 
+    public function find($id)
+    {
+        return Response::json(['type' => $this->page->findTypeById($id)], 200);
+    }
+
     public function store()
     {
         $input = $this->request->only(['name', 'layout', 'areas']);
@@ -27,5 +32,21 @@ class PageTypeController extends Controller {
         $this->page->createType($input);
     }
 
+    public function update($id)
+    {
+        $input = $this->request->only(['name', 'layout', 'areas']);
+
+        return $this->page->updateType($id, $input);
+    }
+
+    public function destroy($id)
+    {
+        return $this->page->destroyType($id);
+    }
+
+    public function destroyArea($id)
+    {
+        return $this->page->destroyArea($id);
+    }
 
 }

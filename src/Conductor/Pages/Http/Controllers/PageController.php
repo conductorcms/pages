@@ -21,6 +21,18 @@ class PageController extends Controller {
         return Response::json(['pages' => $this->page->getAll()], 200);
     }
 
+    public function find($id)
+    {
+        return Response::json(['page' => $this->page->findById($id)], 200);
+    }
+
+    public function update($id)
+    {
+        $input = $this->request->only(['name', 'slug', 'content']);
+
+        $this->page->update($id, $input);
+    }
+
 	public function getLayouts()
 	{
 		$path = base_path() . '/' . Config::get('core::themes.dir') . '/' . Config::get('core::themes.active') . '/layouts';
@@ -65,6 +77,10 @@ class PageController extends Controller {
         $this->page->create($data);
     }
 
+    public function destroy($id)
+    {
+        return $this->page->destroy($id);
+    }
 
     private function buildData($content)
     {

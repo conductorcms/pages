@@ -1,6 +1,17 @@
-<btn class="btn btn-primary pull-right">Add a page</btn><br /><br />
+<style>
+    .page-actions {
+        display: none;
+    }
 
+    .page-list-item:hover .page-actions {
+        display: block;
+    }
 
+    .page-list-item td {
+        padding-top: 12px;
+        width: 25%;
+    }
+</style>
 
 <table class="table table-hover">
     <thead>
@@ -12,13 +23,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="page in pages">
+    <tr ng-repeat="page in pages" class="page-list-item">
         <td><% page.name %></td>
         <td><% page.type.name %></td>
         <td><% page.status %></td>
         <td>
-            <button class="btn btn-warning">Edit</button>
-            <button class="btn btn-danger">Delete</button>
+            <span class="page-actions pull-right">
+                <button ng-click="edit(page)" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></button>
+                <button ng-click="destroy(page)" class="btn btn-danger btn-sm">X</button>
+            </span>
         </td>
     </tr>
     </tbody>

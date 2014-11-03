@@ -38,6 +38,37 @@ class EloquentPageRepository implements PageRepository {
         return $this->page->with('type', 'content', 'content.area')->where('slug', $slug)->first();
     }
 
+    public function findById($id)
+    {
+        return $this->page->with('type', 'content', 'content.area')->find($id);
+    }
+
+    public function update($id, $input)
+    {
+        $page = $this->page->find($id);
+
+        $page->name = $input['name'];
+        $page->slug = $input['slug'];
+
+        $page->save();
+
+        foreach($input['content'] as $content)
+        {
+            $model = $this->content->find($content['id']);
+
+            $model->body = $content['body'];
+
+            $model->save();
+        }
+
+        return true;
+    }
+
+    public function findTypeById($id)
+    {
+        return $this->type->with('areas')->find($id);
+    }
+
     public function create($input)
     {
         $data = [
@@ -62,6 +93,11 @@ class EloquentPageRepository implements PageRepository {
         return $page;
     }
 
+    public function destroy($id)
+    {
+        return $this->page->destroy($id);
+    }
+
     public function createType($input)
     {
         $type = $this->type->create($input);
@@ -76,5 +112,47 @@ class EloquentPageRepository implements PageRepository {
             $area = $this->area->create($area);
         }
 
+    }
+
+    public function updateType($id, $input)
+    {
+        $type = $this->type->find($id);
+
+        $type->name = $input['name'];
+        $type->layout = $input['layout'];
+
+        $type->save();
+
+        $areas = $input['areas'];
+
+
+
+        foreach($areas as &$area)
+        {
+            if(!isset($area['id']))
+            {
+                $area['type_id'] = $type->id;
+                $area = $this->area->create($area);
+            }
+            else
+            {
+                $model = $this->area->find($area['id']);
+                $model->name = $area['name'];
+                $model->slug = $area['slug'];
+                $model->type = $area['type'];
+                $model->save();
+            }
+        }
+
+    }
+
+    public function destroyType($id)
+    {
+        return $this->type->destroy($id);
+    }
+
+    public function destroyArea($id)
+    {
+        return $this->area->destroy($id);
     }
 }

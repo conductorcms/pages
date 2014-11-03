@@ -7,10 +7,15 @@ angular.module('admin').service('Pages', function($http)
 
     pages.getAll = function()
     {
-        $http.get('/admin/api/v1/pages').success(function(data)
+        return $http.get('/admin/api/v1/pages').success(function(data)
         {
            angular.copy(data.pages, pages.pages);
         });
+    }
+
+    pages.find = function(id)
+    {
+        return $http.get('/admin/api/v1/page/' + id);
     }
 
 	pages.getLayouts = function()
@@ -35,6 +40,26 @@ angular.module('admin').service('Pages', function($http)
 
         });
     };
+
+    pages.update = function(page)
+    {
+        var data = {
+            name: page.name,
+            slug: page.slug,
+            content: page.content
+        };
+
+        return $http.put('/admin/api/v1/page/' + page.id, data);
+
+    }
+
+    pages.destroy = function(page)
+    {
+        return $http.delete('/admin/api/v1/page/' + page.id).success(function()
+        {
+            pages.getAll();
+        });
+    }
 
 	return pages;
 });

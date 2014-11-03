@@ -1,0 +1,65 @@
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <h4 class="page-header">
+            Edit a page type
+            <small>Define your content areas</small>
+        </h4>
+        <!-- left column -->
+        <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <!-- form start -->
+                <form role="form">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="type-name">Name</label>
+                            <input ng-model="type.name" type="text" class="form-control" id="type-name" placeholder="Type Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="page-layout">Layout</label>
+                            <select ng-model="type.layout" class="form-control" ng-options="layout.slug as layout.slug for layout in pageLayouts">
+                                <option>Select a layout</option>
+                            </select>
+                        </div>
+                    </div><!-- /.box-body -->
+                    <div class="box-footer">
+                        <button ng-click="save()" class="btn btn-primary pull-right" style="margin-left: 5px">Save</button>
+                        <button ng-click="addArea()" class="btn btn-default pull-right">Add a content area</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6" ng-repeat="area in contentAreas">
+            <div class="box box-warning">
+                <form role="form">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="content-area-name">Content Area Name</label>
+                            <input ng-model="area.name" type="text" class="form-control" id="content-area-name" placeholder="Content Area Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="content-area-slug">Slug</label>
+                            <slug from="area.name" to="area.slug"></slug>
+                            <input ng-model="area.slug" type="text" class="form-control" id="content-area-slug" placeholder="content-area-slug" disabled />
+                        </div>
+                        <div class="form-group">
+                            <label for="page-layout">Type</label>
+                            <select ng-model="area.type" class="form-control">
+                                <option value="input">Input</option>
+                                <option value="textarea">Textarea</option>
+                                <option value="wysiwyg">Wysiwyg</option>
+                                <option value="select">Select</option>
+                            </select>
+                        </div>
+                    </div><!-- /.box-body -->
+                    <div class="box-footer">
+                        <button ng-click="removeArea(area)" class="btn btn-danger pull-right">Delete</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,4 +1,4 @@
-angular.module('admin').controller('CreateTypeCtrl', function($scope, $location, Pages, PageType)
+angular.module('admin').controller('CreateTypeCtrl', function($scope, $location, Pages, PageType, toaster)
 {
     $scope.newType = {};
 	$scope.contentAreas = [];
@@ -11,6 +11,7 @@ angular.module('admin').controller('CreateTypeCtrl', function($scope, $location,
     {
         PageType.save($scope.newType, $scope.contentAreas).success(function()
         {
+            toaster.pop('success', 'Page Type Created', 'Page type successfully created');
             $location.path('/admin/pages/types');
         });
     };

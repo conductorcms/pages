@@ -7,14 +7,9 @@ angular.module('admin.pages').config(function(NavigationProvider) {
                 uri: '/admin/pages'
             },
             {
-                title: 'Page types',
+                title: 'Types',
                 uri: '/admin/pages/types'
             },
-            {
-                title: 'Add a page',
-                uri: '/admin/pages/create'
-            }
-
         ]
     });
 });

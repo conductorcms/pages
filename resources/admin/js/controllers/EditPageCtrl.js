@@ -2,9 +2,6 @@ angular.module('admin').controller('EditPageCtrl', function($scope, $location, P
 {
     $scope.page = page.data.page;
 
-    console.log('controller');
-    console.log(page);
-
     $scope.save = function()
     {
         Pages.update($scope.page).success(function()
@@ -14,7 +11,5 @@ angular.module('admin').controller('EditPageCtrl', function($scope, $location, P
             $location.path('/admin/pages');
         });
     }
-
-
 
 });

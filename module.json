@@ -6,15 +6,20 @@
     "backend": true,
     "frontend": true,
     "assets": {
-        "js": [
-            "resources\/admin\/js\/**\/*.js"
-        ],
-        "sass": [
-            "resources\/admin\/sass\/**\/*.scss"
-        ],
-        "views": [
-            "resources\/admin\/views\/**\/*.html"
-        ]
+        "admin": {
+            "js": [
+                "resources\/admin\/js\/**\/*.js"
+            ],
+            "sass": [
+                "resources\/admin\/sass\/**\/*.scss"
+            ],
+            "views": [
+                "resources\/admin\/views\/**\/*.html"
+            ]
+        },
+        "frontend": {
+
+        }
     },
     "author": {
         "name": "Matt Moore",

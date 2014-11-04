@@ -35,7 +35,7 @@ class PageController extends Controller {
 
 	public function getLayouts()
 	{
-		$path = base_path() . '/' . Config::get('core::themes.dir') . '/' . Config::get('core::themes.active') . '/layouts';
+		$path = base_path() . '/' . Config::get('core::conductor.themes.dir') . '/' . Config::get('core::conductor.themes.active') . '/layouts';
 
 		$files = File::files($path);
 
@@ -65,7 +65,7 @@ class PageController extends Controller {
 
         $data = $this->buildData($page->content);
 
-        $view = Config::get('core::themes.active') . '::layouts.' . $page->type->layout;
+        $view = Config::get('core::conductor.themes.active') . '::layouts.' . $page->type->layout;
 
         return View::make($view, $data);
     }

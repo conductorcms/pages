@@ -70,6 +70,18 @@ class PageController extends Controller {
         return View::make($view, $data);
     }
 
+    public function buildHome()
+    {
+        $page = $this->page->getHome();
+
+        $data = $this->buildData($page->content);
+
+        $view = Config::get('core::conductor.themes.active') . '::layouts.' . $page->type->layout;
+
+        return View::make($view, $data);
+    }
+
+
     public function store()
     {
         $data = $this->request->only(['name', 'slug', 'type', 'content']);

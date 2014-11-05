@@ -28,6 +28,11 @@ class EloquentPageRepository implements PageRepository {
         return $this->page->with('type')->get();
     }
 
+    public function getHome()
+    {
+        return $this->page->whereHome(1)->first();
+    }
+
     public function getTypes()
     {
         return $this->type->with('areas')->get();

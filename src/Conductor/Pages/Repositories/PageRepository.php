@@ -4,6 +4,8 @@ interface PageRepository {
 
     public function getAll();
 
+    public function getHome();
+
     public function getTypes();
 
     public function findBySlug($slug);

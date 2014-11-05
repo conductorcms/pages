@@ -17,6 +17,7 @@ class CreatePagesTable extends Migration {
             $table->increments('id');
             $table->integer('type_id')->unsigned();
             $table->string('name');
+            $table->string('slug');
             $table->enum('status', ['draft', 'published']);
             $table->timestamps();
 

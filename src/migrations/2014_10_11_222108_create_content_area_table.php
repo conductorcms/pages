@@ -5,14 +5,14 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateContentAreaTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('content_areas', function($table)
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('content_areas', function ($table)
         {
             $table->increments('id');
             $table->integer('type_id')->unsigned();
@@ -21,19 +21,19 @@ class CreateContentAreaTable extends Migration {
             $table->string('type');
 
             $table->foreign('type_id')
-                  ->references('id')->on('page_types')
-                  ->onDelete('cascade');
+                ->references('id')->on('page_types')
+                ->onDelete('cascade');
         });
-	}
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::drop('pages_content_areas');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('pages_content_areas');
+    }
 
 }

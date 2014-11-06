@@ -57,7 +57,7 @@ class EloquentPageRepository implements PageRepository {
 
         $page->save();
 
-        foreach($input['content'] as $content)
+        foreach ($input['content'] as $content)
         {
             $model = $this->content->find($content['id']);
 
@@ -84,7 +84,7 @@ class EloquentPageRepository implements PageRepository {
 
         $page = $this->page->create($data);
 
-        foreach($input['content'] as $content)
+        foreach ($input['content'] as $content)
         {
             $data = [
                 'page_id' => $page->id,
@@ -110,7 +110,7 @@ class EloquentPageRepository implements PageRepository {
         $areas = $input['areas'];
 
 
-        foreach($areas as &$area)
+        foreach ($areas as &$area)
         {
             $area['type_id'] = $type->id;
 
@@ -131,8 +131,7 @@ class EloquentPageRepository implements PageRepository {
         $areas = $input['areas'];
 
 
-
-        foreach($areas as &$area)
+        foreach ($areas as &$area)
         {
             if(!isset($area['id']))
             {

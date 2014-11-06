@@ -9,6 +9,6 @@ class Content extends Model {
 
     public function area()
     {
-       return $this->belongsTo('Conductor\Pages\Models\ContentArea', 'content_area_id');
+        return $this->belongsTo('Conductor\Pages\Models\ContentArea', 'content_area_id');
     }
 }

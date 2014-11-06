@@ -18,7 +18,7 @@ class CustomBladeTags {
 
     private function registerContentArea()
     {
-        $this->blade->extend(function($view, $compiler)
+        $this->blade->extend(function ($view, $compiler)
         {
             $pattern = $compiler->createMatcher('contentArea');
 

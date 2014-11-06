@@ -12,7 +12,7 @@ class CreateContentTable extends Migration {
      */
     public function up()
     {
-        Schema::create('pages_content', function($table)
+        Schema::create('pages_content', function ($table)
         {
             $table->increments('id');
             $table->integer('page_id')->unsigned();
@@ -21,12 +21,12 @@ class CreateContentTable extends Migration {
             $table->timestamps();
 
             $table->foreign('page_id')
-                  ->references('id')->on('pages')
-                  ->onDelete('cascade');
+                ->references('id')->on('pages')
+                ->onDelete('cascade');
 
             $table->foreign('content_area_id')
-                  ->references('id')->on('content_areas')
-                  ->onDelete('cascade');
+                ->references('id')->on('content_areas')
+                ->onDelete('cascade');
         });
     }
 

@@ -33,31 +33,31 @@ class PageController extends Controller {
         $this->page->update($id, $input);
     }
 
-	public function getLayouts()
-	{
-		$path = base_path() . '/' . Config::get('core::conductor.themes.dir') . '/' . Config::get('core::conductor.themes.active') . '/layouts';
+    public function getLayouts()
+    {
+        $path = base_path() . '/' . Config::get('core::conductor.themes.dir') . '/' . Config::get('core::conductor.themes.active') . '/layouts';
 
-		$files = File::files($path);
+        $files = File::files($path);
 
-		$layouts = [];
-		foreach($files as $file)
-		{
-			$layout = [];
+        $layouts = [];
+        foreach ($files as $file)
+        {
+            $layout = [];
 
-			$layout['fullPath'] = $file;
-			$pieces = explode('/', $file);
+            $layout['fullPath'] = $file;
+            $pieces = explode('/', $file);
 
-			$layout['filename'] = $pieces[count($pieces) - 1];
+            $layout['filename'] = $pieces[count($pieces) - 1];
 
-			$pieces = explode('.', $layout['filename']);
+            $pieces = explode('.', $layout['filename']);
 
-			$layout['slug'] = $pieces[0];
+            $layout['slug'] = $pieces[0];
 
-			$layouts[] = $layout;
-		}
+            $layouts[] = $layout;
+        }
 
-		return $layouts;
-	}
+        return $layouts;
+    }
 
     public function buildPage($slug)
     {
@@ -99,7 +99,7 @@ class PageController extends Controller {
         $data = [];
         $data['content'] = [];
 
-        foreach($content as $piece)
+        foreach ($content as $piece)
         {
             $data['content'][$piece->area->slug] = $piece->body;
         }

@@ -5,14 +5,14 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePagesTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('pages', function($table)
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('pages', function ($table)
         {
             $table->increments('id');
             $table->integer('type_id')->unsigned();
@@ -23,19 +23,19 @@ class CreatePagesTable extends Migration {
             $table->timestamps();
 
             $table->foreign('type_id')
-                  ->references('id')->on('page_types')
-                  ->onDelete('cascade');
+                ->references('id')->on('page_types')
+                ->onDelete('cascade');
         });
-	}
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::drop('pages');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('pages');
+    }
 
 }

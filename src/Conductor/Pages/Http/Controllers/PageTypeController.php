@@ -12,7 +12,7 @@ class PageTypeController extends Controller {
     function __construct(PageRepository $page, Request $request)
     {
         $this->page = $page;
-        $this->request= $request;
+        $this->request = $request;
     }
 
     public function all()
